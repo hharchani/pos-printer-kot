@@ -19,5 +19,9 @@
     "pngjs": "^3.2.0",
     "unorm": "^1.4.1",
     "write-file-queue": "0.0.1"
+  },
+  "peerDependencies": {
+    "react-native": "^0.50.3",
+    "react-native-windows": "0.41.0-rc.1"
   }
 }
