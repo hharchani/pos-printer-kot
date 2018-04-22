@@ -1,11 +1,3 @@
-var fs = require("fs");
-
-var writeFile = require("write-file-queue")({
-  retries : 1000, 						    // number of write attempts before failing
-  waitTime : 200 					        // number of milliseconds to wait between write attempts
-  //, debug : console.error 			// optionally pass a function to do dump debug information to
-});
-
 
 function File(path) {
   this.path = path;

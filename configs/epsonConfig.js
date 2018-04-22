@@ -1,3 +1,5 @@
+var Buffer = require('buffer').Buffer;
+
 module.exports = {
     // Feed control sequences
     CTL_LF     : new Buffer([0x0a]),              // Print and line feed

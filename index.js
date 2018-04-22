@@ -1,6 +1,1 @@
-
-import { NativeModules } from 'react-native';
-
-const { RNPosPrinter } = NativeModules;
-
-export default RNPosPrinter;
+module.exports = require('./lib/core');

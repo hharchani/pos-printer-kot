@@ -1,14 +1,16 @@
-var net = require("net");
+//TODO: 
+//import net from 'react-native-tcp'
+var net;
 
-function NetPrint(host, port) {
+function NetPrint(host, port, n) {
+  net = n;
   this.timeout = 3000;
   this.host = host;
   this.port = port || 9100;
 }
 
-
 NetPrint.prototype.execute = function(buffer, cb) {
-  var printer = net.connect({
+  var printer = net.createConnection({
     host : this.host,
     port : this.port,
     timeout: this.timeout
@@ -38,7 +40,7 @@ NetPrint.prototype.execute = function(buffer, cb) {
 
 
 NetPrint.prototype.isPrinterConnected = function(exists){
-  var printer = net.connect({
+  var printer = net.createConnection({
     host : this.host,
     port : this.port,
     timeout: this.timeout
