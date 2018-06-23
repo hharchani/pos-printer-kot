@@ -1,5 +1,5 @@
 {
-  "name": "pos-printer",
+  "name": "pos-printer-kot",
   "version": "0.0.1",
   "description": "Made to work with Epson and Star thermal printers",
   "main": "index.js",
