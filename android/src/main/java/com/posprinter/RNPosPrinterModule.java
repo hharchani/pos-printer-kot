@@ -72,11 +72,12 @@ public class RNPosPrinterModule extends ReactContextBaseJavaModule {
     try {
       byte bits[] = new byte[array.size()];
       for (int i =0; i < array.size(); i++) {
-        if (array.getType(i).equals(ReadableType.String)) {
-          bits[i] = array.getString(i).getBytes()[0];
-        } else {
-          bits[i] = (byte) array.getInt(i);
-        }
+         bits[i] = (byte) array.getInt(i);
+//        if (array.getType(i).equals(ReadableType.String)) {
+//          bits[i] = array.getString(i).getBytes()[0];
+//        } else {
+//          bits[i] = (byte) array.getInt(i);
+//        }
       }
       Activity activity = getCurrentActivity();
       if (activity != null) {
