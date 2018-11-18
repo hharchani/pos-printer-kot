@@ -36,7 +36,7 @@ public class RNPosPrinterModule extends ReactContextBaseJavaModule {
 
   public RNPosPrinterModule(ReactApplicationContext reactContext) {
     super(reactContext);
-    u_infor = new int[8][2];
+    u_infor = new int[9][2];
     u_infor[0][0] = 0x0D3A;
     u_infor[0][1] = 0x037C;
 
@@ -60,6 +60,9 @@ public class RNPosPrinterModule extends ReactContextBaseJavaModule {
 
     u_infor[7][0] = 0x04b8;
     u_infor[7][1] = 0x0e11;
+
+    u_infor[8][0] = 0x04b8;
+    u_infor[8][1] = 0x0e20;
   }
 
   @Override
