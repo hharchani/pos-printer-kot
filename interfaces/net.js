@@ -16,25 +16,25 @@ NetPrint.prototype.execute = function(buffer, cb) {
     timeout: this.timeout
   }, function() {
     printer.write(buffer, null, function () {
+      printer.end();
       if (typeof cb !== "undefined") {
         cb(null);
       }
-      printer.end();
     });
   });
 
   printer.on('error', function (err) {
+    printer.end();
     if (typeof cb !== "undefined") {
       cb(err);
     }
-    printer.end();
   });
 
   printer.on('timeout', function () {
+    printer.end();
     if (typeof cb !== "undefined") {
       cb("Error: Socket Timeout");
     }
-    printer.end();
   });
 };
 
