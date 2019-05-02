@@ -17,6 +17,7 @@ NetPrint.prototype.execute = function(buffer, cb) {
   }, function() {
     printer.write(buffer, null, function () {
       printer.end();
+      printer.destroy();
       if (typeof cb !== "undefined") {
         cb(null);
       }
@@ -25,6 +26,7 @@ NetPrint.prototype.execute = function(buffer, cb) {
 
   printer.on('error', function (err) {
     printer.end();
+    printer.destroy();
     if (typeof cb !== "undefined") {
       cb(err);
     }
@@ -32,6 +34,7 @@ NetPrint.prototype.execute = function(buffer, cb) {
 
   printer.on('timeout', function () {
     printer.end();
+    printer.destroy();
     if (typeof cb !== "undefined") {
       cb("Error: Socket Timeout");
     }
@@ -45,18 +48,21 @@ NetPrint.prototype.isPrinterConnected = function(exists){
     port : this.port,
     timeout: this.timeout
   }, function() {
-    exists(true);
     printer.end();
+    printer.destroy();
+    exists(true);
   });
 
   printer.on('error', function (err) {
-    exists(false);
     printer.end();
+    printer.destroy();
+    exists(false);
   });
   
   printer.on('timeout', function () {
-    exists(false);
     printer.end();
+    printer.destroy();
+    exists(false);
   });
 };
 
